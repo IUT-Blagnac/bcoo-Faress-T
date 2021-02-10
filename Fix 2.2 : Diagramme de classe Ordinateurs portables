@@ -1,0 +1,22 @@
+
+@startuml
+
+class Portable {
+  prix d'achat 
+  valeur actuelle
+}
+
+class Clavier {
+  type 
+  touches
+}
+
+class Propriétaire {
+  nom
+  prénom
+}
+
+Portable "1" --- "1" Clavier
+Portable "1" --- "0..1" Propriétaire
+
+@enduml
