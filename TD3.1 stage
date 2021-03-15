@@ -1,4 +1,5 @@
  
+ 
 @startuml
 
 
@@ -30,14 +31,17 @@ class Enseignant{
   specialite
 }
 
+class Promotion{
+  nom
+}
   
 
 Enseignant  "1" --- "0..*" Stage 
 Etudiant "1" --- "1" Stage
 Entreprise "1" --- "*" Stage
-Etudiant "*" --- "1..*" GroupeTP
-GroupeTP "*"---"1..*" GroupeTD
-
+Etudiant "*" --- "1" GroupeTP
+GroupeTP "*"---"1" GroupeTD
+Stage "*"--- "1" Promotion
 
 
 @enduml
