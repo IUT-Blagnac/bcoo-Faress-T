@@ -1,0 +1,13 @@
+@startuml
+
+actor Enseignant
+actor Etudiant
+actor EnseignantResponsable
+
+Enseignant -- (reservation des \nsalles et du matériel)
+Enseignant -- (planning des salles)
+Etudiant -- (planning des salles)
+Enseignant -- (recapitulatif horaire)
+EnseignantResponsable -- (recapitulatif horaire):"éditer"
+
+@enduml
