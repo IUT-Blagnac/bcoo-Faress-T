@@ -1,0 +1,20 @@
+@startuml
+
+actor Client
+
+usecase p as (passer dans les rayons)
+usecase d as (demander des renseignements)
+usecase e as (procèder à des essais)
+usecase a as (prendre des articles)
+usecase c as (passe à la caisse)
+usecase r as (bénéficier dune réduction)
+
+Client -- p
+Client -- a
+Client -- c
+
+c <.. r : <<extend>>
+p <.. d : <<extend>>
+p <.. e : <<extend>>
+
+@enduml
