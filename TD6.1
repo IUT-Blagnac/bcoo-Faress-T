@@ -1,1 +1,74 @@
+@startuml
 
+class Qualification {
+    idCodeQualif
+    libelleQualif
+    tauxHoraire
+    getArtisans(): Artisan[]
+    getTauxHoraire()
+  }
+
+class Artisan {
+    idSiret
+    nomArt
+    adresseArt
+    tphArt
+    getNomArt()
+    getPayeArtisan(c)
+  }
+
+class Tache {
+    idCodeTache
+    designationT
+    getQualif()
+  }
+
+class Realiser {
+    dateReal
+    dureeReal
+    setDate(d)
+    setDuree(d)
+    getTache(d)
+    getDuree(d)
+  }
+
+class Executer {
+    ordre
+    dureeMoy
+    getTache()
+  }
+
+class Modele {
+    idCodeModele
+    designationM
+    prixVenteM
+    prixRevientM
+    dureeConstructionM
+    calculerDureeMoy()
+  }
+
+class Chantier {
+    idChantier
+    nomProprio
+    adresseChantier
+    adresseProprio
+    telProprio
+    dateOuverture
+    dateCloture
+    estTermine
+    setDateFin(d)
+    getBilanAvancement(c)
+    estTermine()
+    getDureeeChantier()
+  }
+
+Qualification "1" -- "*" Artisan
+Qualification "1" -- Tache
+Artisan "1" -- "*" Realiser
+Tache "1" -- "*" Realiser
+Tache "1..*" -- "0..*" Modele
+Realiser "*" -- Chantier
+Modele "1" -- "*" Chantier
+(Tache, Modele) . Executer
+
+@enduml
